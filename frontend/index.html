@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { margin: 5px; padding: 5px; }
+    button { margin: 5px; padding: 5px 10px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Student Management System</h1>
+
+<h2>Add Student</h2>
+
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="reg" placeholder="Registration Number">
+<input type="text" id="course" placeholder="Course">
+<input type="number" id="year" placeholder="Year">
+
+<button id="addBtn">Add Student</button><br>
+
+<h2>Students</h2><br> <input type="text" id="search" placeholder="Search students by name or reg number">
+<select id="courseFilter">
+  <option value="">All Courses</option>
+  <option value="BBIT">BBIT</option>
+  <option value="BIT">BIT</option>
+  <option value="BSCS">BSCS</option>
+</select>
+
+<select id="yearFilter">
+  <option value="">All Years</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+
+
+<ul id="studentList"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>

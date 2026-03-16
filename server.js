@@ -1,11 +1,14 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const studentRoutes = require("./routes/students"); // import routes
 
-app.use(express.json());
+
+app.use(cors());
+app.use(express.json()); // for parsing application/json
 
 // Use student routes
-app.use("/students", studentRoutes);
+app.use("/students", require("./routes/students"));
 
 // Test route
 app.get("/", (req, res) => {
