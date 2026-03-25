@@ -1,0 +1,138 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  background:#f8f6f8;
+}
+
+/* Layout */
+.dashboard{
+  display:flex;
+  height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+  width:220px;
+  background:linear-gradient(180deg,#667eea,#764ba2);
+  color:white;
+  padding:20px;
+}
+
+.sidebar h2{
+  margin-bottom:20px;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar li{
+  padding:10px;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+.sidebar li:hover{
+  background:rgba(255,255,255,0.2);
+}
+
+/* Main content */
+.main{
+  flex:1;
+  padding:30px;
+  overflow-y:auto;
+}
+
+/* Stats */
+.stats{
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.card{
+  flex:1;
+  background:rgb(248, 246, 246);
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card p{
+  font-size:22px;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* Form */
+.form-section{
+  margin-bottom:20px;
+}
+
+.form-section input{
+  padding:10px;
+  margin:5px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+.form-section button{
+  padding:10px 15px;
+  border:none;
+  border-radius:6px;
+  background:#667eea;
+  color:rgb(223, 216, 216);
+  cursor:pointer;
+}
+
+/* Filters */
+.filters{
+  margin-bottom:20px;
+}
+
+.filters input,
+.filters select{
+  padding:10px;
+  margin-right:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+/* Student list */
+#studentList{
+  list-style:none;
+}
+
+#studentList li{
+  background:white;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* Buttons */
+button{
+  margin-left:5px;
+  padding:6px 12px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:nth-child(1){
+  background:#28a745;
+  color:white;
+}
+
+button:nth-child(2){
+  background:#dc3545;
+  color:rgb(219, 217, 219);
+}

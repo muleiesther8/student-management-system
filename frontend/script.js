@@ -31,18 +31,20 @@ async function loadStudents() {
 }
 
 // Render students in the list
+
 function renderStudents(students) {
   studentList.innerHTML = "";
   students.forEach(student => {
     const li = document.createElement("li");
     li.innerHTML = `
       ${student.name} (${student.registration_number}) - ${student.course} Year ${student.year}
-      <button onclick="updateStudent(${student.id})">Update</button>
+      <button onclick="editStudent(${student.id}, '${student.name}', '${student.registration_number}', '${student.course}', ${student.year})">Edit</button>
       <button onclick="deleteStudent(${student.id})">Delete</button>
     `;
     studentList.appendChild(li);
   });
 }
+
 
 // Add student
 async function addStudent() {
@@ -84,26 +86,37 @@ async function deleteStudent(id) {
     console.error("Failed to delete student:", err);
   }
 }
+// Edit student (collect input)
+  function editStudent(id, name, reg, course, year) {
 
-// Update student
-async function updateStudent(id) {
-  const name = prompt("Enter new name:");
-  const registration_number = prompt("Enter new registration number:");
-  const course = prompt("Enter new course:");
-  const year = prompt("Enter new year:");
+  const newName = prompt("Edit name:", name);
+  const newReg = prompt("Edit registration number:", reg);
+  const newCourse = prompt("Edit course:", course);
+  const newYear = prompt("Edit year:", year);
 
-  if (!name || !registration_number || !course || !year) {
-    alert("All fields are required!");
+  if (!newName || !newReg || !newCourse || !newYear) {
+    alert("All fields required");
     return;
   }
+  updateStudent(id, newName, newReg, newCourse, newYear);
+}
+// Update student
+  async function updateStudent(id, name, registration_number, course, year) {
 
   try {
     await fetch(`${API}/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, registration_number, course, year })
+      body: JSON.stringify({
+        name,
+        registration_number,
+        course,
+        year
+      })
     });
-    loadStudents(); // refresh list
+
+    loadStudents();
+
   } catch (err) {
     console.error("Failed to update student:", err);
   }
